@@ -1,14 +1,18 @@
 1. Public web
-2. Chép file trong thưc mục wwwroot lên server
-3. Phân quyền
-   ```
+   
+3. Chép file trong thưc mục wwwroot lên server
+   
+5. Phân quyền nginx được quyền đọc ghi trên thư muc web
+```
 sudo chown -R www-data:www-data /var/www/thu_muc_chua_index.html
 sudo find /var/www/vinnodes.com -type d -exec chmod 755 {} \;
 sudo find /var/www/vinnodes.com -type f -exec chmod 644 {} \;
 ```
 5. Cấu hình nginx
+```
 sudo nano /etc/nginx/sites-available/domain_site.com
-                                                       
+```
+```                                                      
 # Redirect all HTTP to HTTPS
 server {
     listen 80;
@@ -47,3 +51,4 @@ server {
         add_header Cache-Control "public, no-transform";
     }
 }
+```
