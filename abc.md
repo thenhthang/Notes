@@ -1,13 +1,14 @@
 1. Public web
 2. Chép file trong thưc mục wwwroot lên server
 3. Phân quyền
+   ```
 sudo chown -R www-data:www-data /var/www/thu_muc_chua_index.html
 sudo find /var/www/vinnodes.com -type d -exec chmod 755 {} \;
 sudo find /var/www/vinnodes.com -type f -exec chmod 644 {} \;
-4. Cấu hình nginx
+```
+5. Cấu hình nginx
 sudo nano /etc/nginx/sites-available/domain_site.com
-
-  GNU nano 6.2                                                /etc/nginx/sites-available/vinnodes.com                                                         
+                                                       
 # Redirect all HTTP to HTTPS
 server {
     listen 80;
@@ -45,7 +46,4 @@ server {
         access_log off;
         add_header Cache-Control "public, no-transform";
     }
-#    location / {
- #       try_files $uri $uri/ =404;
-  #  }
 }
